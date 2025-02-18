@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES5",  // Целевая версия ECMAScript, совместимая с большинством браузеров
+    "lib": ["dom", "esnext"],  // Использование последних возможностей JavaScript и DOM
+    "allowJs": true,  // Разрешить компиляцию JavaScript файлов
+    "skipLibCheck": true,  // Пропуск проверки типов в библиотечных файлах
+    "esModuleInterop": true,  // Позволяет импортировать CommonJS модули как ES6
+    "moduleResolution": "node",  // Метод разрешения модулей (для Node.js)
+    "module": "ESNext",  // Модульная система
+    "typeRoots": ["./node_modules/@types", "./src"],
+    "strict": true,  // Включить все строгие проверки типов
+    "noImplicitAny": true,  // Запретить использование типа `any`
+    "jsx": "react-jsx",  // Использование JSX синтаксиса для React 17 и выше
+    "resolveJsonModule": true,  // Разрешить импорты JSON файлов
+    "skipDefaultLibCheck": true,  // Пропустить проверку стандартных библиотек
+    "baseUrl": "src",  // Базовая директория для разрешения модулей
+    "paths": {
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "styles/*": ["styles/*"],
+      "assets/*": ["assets/*"],
+      "ui/*": ["ui/*"],
+      "types/*": ["types/*"],
+    },  // Псевдонимы для путей
+  },
+  "include": [
+    "src/**/*",  // Включить все файлы в папке src
+    "node_modules/@types/**/*.d.ts"  // Включить типы из node_modules
+  ],
+  "exclude": [
+    "node_modules",  // Исключить папку node_modules
+    "build",  // Исключить папку сборки
+    "dist"  // Исключить папку дистрибутива
+  ]
+}
