@@ -34,9 +34,9 @@ export const ContractsPage: FC = () => {
 
       if (isDrafted || isSigned || isClosed) {
          filtered = contracts.filter((contract: IContractTypes) => {
-            return (isDrafted && contract.dateOfCreate)
-               || (isSigned && contract.dateOfWrite)
-               || (isClosed && contract.dateOfClose);
+            return (isDrafted && contract.dateOfCreate && !contract.dateOfWrite && !contract.dateOfClose)
+               || (isSigned && contract.dateOfCreate && contract.dateOfWrite && !contract.dateOfClose)
+               || (isClosed && contract.dateOfCreate && contract.dateOfWrite && contract.dateOfClose);
          });
       }
 

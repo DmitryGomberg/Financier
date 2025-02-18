@@ -1,7 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
 /start.bat
 /financist-back/.env
-/financist-back/node-modules
-/financist-front/node-modules
+/financist-back/node_modules
+/financist-front/node_modules

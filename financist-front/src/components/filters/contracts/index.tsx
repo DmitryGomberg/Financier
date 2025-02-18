@@ -27,7 +27,7 @@ export const FilterContracts: FC<IFilterContractsProps> = (props) => {
             <FilterBlock>
                <FilterLabel>по состоянию:</FilterLabel>
                <div>
-                  <UiCheckbox label={'Составлен'} checked={isDrafted} onChange={() => setIsDrafted(!isDrafted)} />
+                  <UiCheckbox label={'Создан'} checked={isDrafted} onChange={() => setIsDrafted(!isDrafted)} />
                </div>
                <div>
                   <UiCheckbox label={'Подписан'} checked={isSigned} onChange={() => setIsSigned(!isSigned)} />

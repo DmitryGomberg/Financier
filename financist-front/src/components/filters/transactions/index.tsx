@@ -19,7 +19,11 @@ export const FilterTransactions: FC<IFilterTransactionsProps> = (props) => {
          dateFrom,
          dateTo,
       );
-     props.handleSubmit(transactionTypeGet, transactionTypePost, dateFrom, dateTo);
+      if(new Date(dateFrom).getTime() - new Date(dateTo).getTime() < 0) {
+         props.handleSubmit(transactionTypeGet, transactionTypePost, dateFrom, dateTo);
+      } else {
+         alert('Укажите корректный промежуток времени')
+      }
    };
 
    return (
