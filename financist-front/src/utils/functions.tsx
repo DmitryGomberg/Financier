@@ -60,3 +60,12 @@ export const validateStages = (stages: IStageTypes[]) => {
     })
     return sumOfPercents === 100
 };
+
+export const isNumeric = (value: string): boolean => {
+    return !isNaN(parseFloat(value)) && isFinite(Number(value));
+};
+
+export const isDate = (value: string): boolean => {
+    const datePattern = /^\d{2}\.\d{2}\.\d{4}$/;
+    return datePattern.test(value);
+};

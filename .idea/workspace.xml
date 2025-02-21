@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33ce24f0-ef19-4612-a391-89a83bf36ad0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/components/filters/contracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/filters/contracts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/components/filters/transactions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/filters/transactions/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/createContract/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/createContract/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/editContract/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/editContract/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/utils/functions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/utils/functions.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +30,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "ts.external.directory.path": "D:\\Фина-Проминижиниринг\\Financier\\financist-front\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Фина-Проминижиниринг\\Financier\\financist-front\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Фина-Проминижиниринг\Financier\financist-front\src\ui" />
@@ -69,7 +66,12 @@
       <option name="presentableId" value="Default" />
       <updated>1739862312268</updated>
       <workItem from="1739862314117" duration="586000" />
-      <workItem from="1739862917528" duration="1459000" />
+      <workItem from="1739862917528" duration="2993000" />
+      <workItem from="1739875720615" duration="1659000" />
+      <workItem from="1740046864191" duration="17000" />
+      <workItem from="1740054255702" duration="292000" />
+      <workItem from="1740054599691" duration="4719000" />
+      <workItem from="1740132574275" duration="425000" />
     </task>
     <servers />
   </component>
