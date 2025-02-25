@@ -1,9 +1,8 @@
-import {FC, useEffect, useState} from 'react';
-import {formatDateDashes, formatDateDots, formatPrice, IContractTypes, ITransactionTypes} from 'utils';
-import {UiInput, UiTable} from 'ui';
+import { FC, useEffect, useState } from 'react';
+import { formatDateDashes, formatDateDots, formatPrice, IContractTypes, ITransactionTypes } from 'utils';
+import { UiInput, UiTable } from 'ui';
 import { Subtitle, Title } from 'styled';
 import { AnalyticsPageBlock, AnalyticsPageContainer, AnalyticsPagePeriod, AnalyticsPagePeriodLine } from './styled';
-
 
 export const AnalyticsPage: FC = () => {
    const today = new Date();
@@ -22,7 +21,6 @@ export const AnalyticsPage: FC = () => {
                throw new Error(`Error fetching contracts: ${response.status}`);
             }
             const data = await response.json();
-            console.log(data);
             setContracts(data);
          } catch (error) {
             console.error(error);
@@ -52,6 +50,25 @@ export const AnalyticsPage: FC = () => {
 
    const totalAmountSpent = transactions.reduce((total, transaction) => total + Number(transaction.price), 0);
 
+   const getContractRowData = (contract: IContractTypes) => [
+      contract.name || '',
+      contract.number || '',
+      formatDateDots(contract.dateOfWrite || '')
+   ];
+
+   const getClosedContractRowData = (contract: IContractTypes) => [
+      contract.name || '',
+      contract.number || '',
+      formatDateDots(contract.dateOfClose || '')
+   ];
+
+   const getTransactionRowData = (transaction: ITransactionTypes) => [
+      getContractNameById(transaction.contractId),
+      transaction.description || '',
+      formatPrice(transaction.price.toString()),
+      formatDateDots(transaction.date) || ''
+   ];
+
    return (
       <AnalyticsPageContainer>
          <Title>Аналитика</Title>
@@ -72,33 +89,23 @@ export const AnalyticsPage: FC = () => {
                </div>
             </AnalyticsPagePeriodLine>
          </AnalyticsPagePeriod>
-          <AnalyticsPageBlock>
-              <Subtitle>Подписано договоров за указанный период: {contracts.filter(contract => contract.dateOfWrite && (contract.dateOfWrite > dateFrom)).length}</Subtitle>
-              <UiTable headers={['Название', 'Номер договора', 'Дата подписания']}
-                       data={contracts.filter(contract => contract.dateOfWrite).reverse().map(contract => [
-                          contract.name || '',
-                          contract.number || '',
-                          formatDateDots(contract.dateOfWrite|| '')
-                       ])} />
-          </AnalyticsPageBlock>
+         <AnalyticsPageBlock>
+            <Subtitle>Подписано договоров за указанный период: {contracts.filter(contract => contract.dateOfWrite && (contract.dateOfWrite > dateFrom)).length}</Subtitle>
+            <UiTable headers={['Название', 'Номер договора', 'Дата подписания']}
+                     data={contracts.filter(contract => contract.dateOfWrite).reverse()}
+                     getRowData={getContractRowData} />
+         </AnalyticsPageBlock>
          <AnalyticsPageBlock>
             <Subtitle>Закрыто договоров за указанный период: {contracts.filter(contract => contract.dateOfClose && (contract.dateOfClose < dateTo)).length}</Subtitle>
             <UiTable headers={['Название', 'Номер договора', 'Дата закрытия']}
-                     data={contracts.filter(contract => contract.dateOfClose && (contract.dateOfClose < dateTo)).reverse().map(contract => [
-                        contract.name || '',
-                        contract.number || '',
-                        formatDateDots(contract.dateOfClose|| '')
-                     ])} />
+                     data={contracts.filter(contract => contract.dateOfClose && (contract.dateOfClose < dateTo)).reverse()}
+                     getRowData={getClosedContractRowData} />
          </AnalyticsPageBlock>
          <AnalyticsPageBlock>
             <Subtitle>Потрачено всего средств: {formatPrice(totalAmountSpent.toString())}</Subtitle>
             <UiTable headers={['Контракт', 'Описание', 'Сумма', 'Дата']}
-                     data={transactions.map(transaction => [
-                        getContractNameById(transaction.contractId),
-                        transaction.description || '',
-                        formatPrice(transaction.price.toString()),
-                        formatDateDots(transaction.date) || ''
-                     ])} />
+                     data={transactions}
+                     getRowData={getTransactionRowData} />
          </AnalyticsPageBlock>
       </AnalyticsPageContainer>
    );

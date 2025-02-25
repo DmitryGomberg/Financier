@@ -8,7 +8,7 @@ export const UiTableContainer = styled.table`
 	text-align: center;
 `;
 
-export const UiTableHeader = styled.th`
+export const UiTableHeader = styled.th<{hasIcon: boolean}>`
 	border: 1px solid ${colors.blue};
 	padding: 3px;
 	background-color: ${colors.accentGreen};
@@ -17,6 +17,7 @@ export const UiTableHeader = styled.th`
     cursor: pointer;
 	position: relative;
     user-select: none;
+    text-align: ${({hasIcon}) => hasIcon ? 'left' : 'center'};
     & svg{
 	    position: absolute;
         right: 0px;

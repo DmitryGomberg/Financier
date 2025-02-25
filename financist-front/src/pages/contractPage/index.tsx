@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UiButton, UiTable } from 'ui';
-import {BorderContainer, Subtitle, Title} from 'styled';
+import { BorderContainer, Subtitle, Title } from 'styled';
 import { ContractPageOptions } from './options';
-import {formatDateDots, formatPrice, getFileType, IStageTypes, ITransactionTypes} from 'utils';
-import {ContractPageContainer, ContractPageFile, ContractPageFiles, ContractPageHeader, ContractPageRes, ContractPageResLine} from './styled';
+import { formatDateDots, formatPrice, getFileType, IStageTypes, ITransactionTypes } from 'utils';
+import { ContractPageContainer, ContractPageFile, ContractPageFiles, ContractPageHeader, ContractPageRes, ContractPageResLine } from './styled';
 
 const dayTypeMap = {
    0: 'календарных',
@@ -39,7 +39,6 @@ export const ContractPage: FC = () => {
             console.error(error);
          }
       };
-
       const fetchExpenses = async () => {
          try {
             const response = await fetch(`http://localhost:4565/contracts/${id}/expenses`);
@@ -52,7 +51,6 @@ export const ContractPage: FC = () => {
             console.error(error);
          }
       };
-
       const fetchReceipts = async () => {
          try {
             const response = await fetch(`http://localhost:4565/contracts/${id}/receipts`);
@@ -65,7 +63,6 @@ export const ContractPage: FC = () => {
             console.error(error);
          }
       };
-
       const fetchFiles = async () => {
          try {
             const response = await fetch(`http://localhost:4565/download/${id}`);
@@ -89,21 +86,23 @@ export const ContractPage: FC = () => {
       return <div>Loading...</div>;
    }
 
-   const paymentStages = contract.payCondition?.map((stage: IStageTypes) => [
+   const getPaymentStageRowData = (stage: IStageTypes) => [
       stage.name,
       stage.percent,
       `${stage.time} ${dayTypeMap[stage.dayType]} дней`
-   ]) || [];
-   const expensesData = expenses?.sort((a: ITransactionTypes, b: ITransactionTypes) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((expense: ITransactionTypes) => [
+   ];
+
+   const getExpenseRowData = (expense: ITransactionTypes) => [
       formatDateDots(expense.date),
       expense.description,
       formatPrice(String(expense.price))
-   ]) || [];
-   const receiptsData = receipts?.sort((a: ITransactionTypes, b: ITransactionTypes) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((expense: ITransactionTypes) => [
-      formatDateDots(expense.date),
-      expense.description,
-      formatPrice(String(expense.price))
-   ]) || [];
+   ];
+
+   const getReceiptRowData = (receipt: ITransactionTypes) => [
+      formatDateDots(receipt.date),
+      receipt.description,
+      formatPrice(String(receipt.price))
+   ];
 
    const totalExpenses = calculateTotal(expenses || []);
    const totalReceipts = calculateTotal(receipts || []);
@@ -116,15 +115,15 @@ export const ContractPage: FC = () => {
       <ContractPageContainer>
          <ContractPageHeader>
             <Title>{contract.name}</Title>
-            <UiButton label={'Редактировать'} onClick={handleEdit}/>
+            <UiButton label={'Редактировать'} onClick={handleEdit} />
          </ContractPageHeader>
-         <ContractPageOptions contract={contract}/>
+         <ContractPageOptions contract={contract} />
          <Subtitle>Этапы оплаты</Subtitle>
-         <UiTable headers={['Название', 'Процент от суммы %', 'Срок получения средств']} data={paymentStages} />
+         <UiTable headers={['Название', 'Процент от суммы %', 'Срок получения средств']} data={contract.payCondition || []} getRowData={getPaymentStageRowData} />
 
          <BorderContainer>
             <Subtitle>Поступления</Subtitle>
-            <UiTable headers={['Дата', 'Описание', 'Сумма BYN']} data={receiptsData}/>
+            <UiTable headers={['Дата', 'Описание', 'Сумма BYN']} data={receipts || []} getRowData={getReceiptRowData} />
             <ContractPageRes>
                <ContractPageResLine>Итого: {formatPrice(String(totalReceipts))} BYN</ContractPageResLine>
                <ContractPageResLine>Остаток: {formatPrice(String(calculateRemainingBalance(contract.price, totalReceipts)))} BYN</ContractPageResLine>
@@ -133,7 +132,7 @@ export const ContractPage: FC = () => {
 
          <BorderContainer>
             <Subtitle>Зарегистрированные затраты</Subtitle>
-            <UiTable headers={['Дата', 'Описание', 'Сумма BYN']} data={expensesData}/>
+            <UiTable headers={['Дата', 'Описание', 'Сумма BYN']} data={expenses || []} getRowData={getExpenseRowData} />
             <ContractPageRes>
                <ContractPageResLine>Итого: {formatPrice(String(totalExpenses))} BYN</ContractPageResLine>
                <ContractPageResLine>Остаток: {formatPrice(String(calculateRemainingBalance(contract.price, totalExpenses)))} BYN</ContractPageResLine>

@@ -1,10 +1,9 @@
-import {FC, useCallback, useEffect, useState} from 'react';
-import {UiButton, UiInput} from 'ui';
+import { FC, useEffect, useState } from 'react';
+import { UiButton, UiInput, UiTable } from 'ui';
 import {FilterContracts, TableContracts} from 'components';
-import {Title} from 'styled';
-import {ContractsPageContainer, ContractsPageHeader, ContractsPageSearch} from './styled';
-import {log} from "node:util";
-import {IContractTypes} from "../../utils";
+import { Title } from 'styled';
+import { ContractsPageContainer, ContractsPageHeader, ContractsPageSearch } from './styled';
+import {formatDateDots, IContractTypes} from 'utils';
 
 export const ContractsPage: FC = () => {
    let [activeFilter, setActiveFilter] = useState(false);

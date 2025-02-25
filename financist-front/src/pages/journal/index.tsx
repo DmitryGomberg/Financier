@@ -1,9 +1,10 @@
-import {FC, useEffect, useState} from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Title } from 'styled';
-import { UiButton } from 'ui/Button';
+import { UiButton, UiTable } from 'ui';
 import { JournalPageContainer, JournalPageHeader } from './styled';
 import { FilterTransactions } from 'components/filters';
-import { TableTransactions } from 'components/tableTransactions';
+import { formatDateDots, formatPrice } from 'utils';
+import {TableTransactions} from "components/tableTransactions";
 
 export const JournalPage: FC = () => {
    let [activeFilter, setActiveFilter] = useState(false);
@@ -78,7 +79,11 @@ export const JournalPage: FC = () => {
             }} />
          </JournalPageHeader>
          {activeFilter && <FilterTransactions handleSubmit={handleFilter}/>}
-         <TableTransactions data={activeFilter ? transactionsFiltered : transactions} contracts={contracts} />
+         <TableTransactions
+            contracts={contracts}
+            headers={['Наименование', 'Номер договора', 'Тип', 'Описание', 'Поставщик', 'Сумма', 'Дата']}
+            data={activeFilter ? transactionsFiltered : transactions}
+         />
       </JournalPageContainer>
    );
 };

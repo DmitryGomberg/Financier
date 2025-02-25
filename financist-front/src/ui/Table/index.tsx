@@ -1,11 +1,13 @@
-import { FC, useState } from 'react';
+import {FC, ReactNode, useState} from 'react';
 import { UiTableContainer, UiTableHeader, UiTableRow, UiTableCell, ArrowDropUp } from './styled';
 import { ArrowDropDown } from "@mui/icons-material";
 import { isDate, isNumeric } from 'utils';
 
-type UiTableProps = {
+type UiTableProps<T> = {
    headers: string[];
-   data: string[][];
+   data: T[];
+   getRowData: (item: T) => (string | number | null | ReactNode)[];
+   onRowClick?: (item: T) => void;
 };
 
 type SortConfig = {
@@ -13,17 +15,14 @@ type SortConfig = {
    direction: 'ascending' | 'descending';
 };
 
-export const UiTable: FC<UiTableProps> = ({ headers, data }) => {
+export const UiTable: FC<UiTableProps<any>> = ({ headers, data, getRowData, onRowClick }) => {
    const [sortConfig, setSortConfig] = useState<SortConfig | null>(null);
 
    const sortedData = [...data];
    if (sortConfig !== null) {
       sortedData.sort((a, b) => {
-         let aValue = a[headers.indexOf(sortConfig.key)].replace(/\s+/g, '');
-         let bValue = b[headers.indexOf(sortConfig.key)].replace(/\s+/g, '');
-
-         console.log(aValue + ' ' + isDate(aValue));
-         console.log(bValue + ' ' + isDate(bValue));
+         const aValue = String(getRowData(a)[headers.indexOf(sortConfig.key)]).replace(/\s+/g, '');
+         const bValue = String(getRowData(b)[headers.indexOf(sortConfig.key)]).replace(/\s+/g, '');
 
          if (isNumeric(aValue) && isNumeric(bValue)) {
             return sortConfig.direction === 'ascending'
@@ -31,10 +30,15 @@ export const UiTable: FC<UiTableProps> = ({ headers, data }) => {
                : parseFloat(bValue) - parseFloat(aValue);
          }
 
+         if ((aValue.includes('рабочихдней') || bValue.includes('календарныхдней')) || (aValue.includes('рабочихдней') || bValue.includes('календарныхдней'))) {
+            const aDays = parseInt(aValue.replace(/\D/g, ''), 10);
+            const bDays = parseInt(bValue.replace(/\D/g, ''), 10);
+            return sortConfig.direction === 'ascending' ? aDays - bDays : bDays - aDays;
+         }
+
          if (isDate(aValue) && isDate(bValue)) {
             const dateA = new Date(aValue.split('.').reverse().join('-'));
             const dateB = new Date(bValue.split('.').reverse().join('-'));
-            console.log(dateA, dateB);
             return sortConfig.direction === 'ascending' ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
          }
 
@@ -56,27 +60,34 @@ export const UiTable: FC<UiTableProps> = ({ headers, data }) => {
       setSortConfig({ key, direction });
    };
 
+   const getSortIcon = (key: string) => {
+      if (!sortConfig || sortConfig.key !== key) {
+         return null;
+      }
+      return sortConfig.direction === 'ascending' ? <ArrowDropUp /> : <ArrowDropDown />;
+   };
+
    if (data.length === 0) return <div>Нет данных</div>;
 
    return (
       <UiTableContainer>
          <thead>
-            <UiTableRow>
-               {headers.map((header) => (
-                  <UiTableHeader key={header} onClick={() => requestSort(header)}>
-                     {header}
-                  </UiTableHeader>
-               ))}
-            </UiTableRow>
+         <UiTableRow>
+            {headers.map((header) => (
+               <UiTableHeader key={header} onClick={() => requestSort(header)} hasIcon={!!getSortIcon(header)}>
+                  {header} {getSortIcon(header)}
+               </UiTableHeader>
+            ))}
+         </UiTableRow>
          </thead>
          <tbody>
-            {sortedData.map((row, rowIndex) => (
-               <UiTableRow key={rowIndex}>
-                  {row.map((cell, cellIndex) => (
-                     <UiTableCell key={cellIndex}>{cell || '-'}</UiTableCell>
-                  ))}
-               </UiTableRow>
-            ))}
+         {sortedData.map((item, rowIndex) => (
+            <UiTableRow key={rowIndex} clickable={!!onRowClick} onClick={() => onRowClick && onRowClick(item)}>
+               {getRowData(item).map((cell, cellIndex) => (
+                  <UiTableCell key={cellIndex}>{cell || '-'}</UiTableCell>
+               ))}
+            </UiTableRow>
+         ))}
          </tbody>
       </UiTableContainer>
    );

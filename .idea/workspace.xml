@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="33ce24f0-ef19-4612-a391-89a83bf36ad0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/components/tableContracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/tableContracts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/components/tableTransactions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/tableTransactions/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/analytics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/analytics/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/contractPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/contractPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/journal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/journal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/utils/functions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/utils/functions.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +39,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tablesRebuild&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,7 +76,10 @@
       <workItem from="1740046864191" duration="17000" />
       <workItem from="1740054255702" duration="292000" />
       <workItem from="1740054599691" duration="4719000" />
-      <workItem from="1740132574275" duration="425000" />
+      <workItem from="1740132574275" duration="2796000" />
+      <workItem from="1740135685696" duration="1696000" />
+      <workItem from="1740375318591" duration="5548000" />
+      <workItem from="1740462578243" duration="300000" />
     </task>
     <servers />
   </component>

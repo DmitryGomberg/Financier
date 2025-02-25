@@ -1,21 +1,21 @@
 import { FC } from 'react';
 import { TableContractsContainer } from './styled';
-import { UiTableCell, UiTableHeader, UiTableRow } from 'ui/Table/styled';
 import { useNavigate } from 'react-router-dom';
-import { formatDateDots, formatPrice, IContractTypes, IStageTypes } from 'utils';
+import { formatDateDots, formatPrice, IContractTypes } from 'utils';
+import { UiTable } from 'ui/Table';
 
 type ITableContractsProps = {
-   data: IContractTypes[];
    headers: string[];
+   data: IContractTypes[];
 }
 
-export const TableContracts: FC<ITableContractsProps> = (props) => {
+export const TableContracts: FC<ITableContractsProps> = ({ headers, data }) => {
    const navigate = useNavigate();
-   const handleRowClick = (id: number) => {
-      navigate(`/contracts/${id}`);
+   const handleRowClick = (contract: IContractTypes) => {
+      navigate(`/contracts/${contract.id}`);
    };
 
-   const contractsData = props.data?.map((contract) => [
+   const getRowData = (contract: IContractTypes) => [
       contract.name,
       contract.number,
       contract.customerName,
@@ -25,28 +25,11 @@ export const TableContracts: FC<ITableContractsProps> = (props) => {
       contract.dateOfClose ? 'закрыт' : contract.dateOfWrite ? 'подписан' : 'создан',
       contract.dateOfWrite ? formatDateDots(contract.dateOfWrite) : '-',
       contract.dateOfClose ? formatDateDots(contract.dateOfClose) : '-',
-      contract.id,
-   ]) || [];
+   ];
 
-   if (props.data.length === 0) return <div>Нет данных</div>;
    return (
       <TableContractsContainer>
-         <thead>
-         <UiTableRow>
-            {props.headers.map((header, index) => (
-               <UiTableHeader key={index}>{header}</UiTableHeader>
-            ))}
-         </UiTableRow>
-         </thead>
-         <tbody>
-         {contractsData.reverse().map((row, rowIndex) => (
-            <UiTableRow key={rowIndex} onClick={() => handleRowClick(row[9] as number)} clickable>
-               {row.slice(0, -1).map((cell, cellIndex) => (
-                  <UiTableCell key={cellIndex}>{String(cell)}</UiTableCell>
-               ))}
-            </UiTableRow>
-         ))}
-         </tbody>
+         <UiTable headers={headers} data={data} getRowData={getRowData} onRowClick={handleRowClick} />
       </TableContractsContainer>
    );
 };
