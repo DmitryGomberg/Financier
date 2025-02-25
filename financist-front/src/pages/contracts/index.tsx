@@ -25,6 +25,7 @@ export const ContractsPage: FC = () => {
             console.error(error);
          }
       };
+
       fetchContracts();
    }, []);
 

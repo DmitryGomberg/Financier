@@ -5,6 +5,7 @@ import { JournalPageContainer, JournalPageHeader } from './styled';
 import { FilterTransactions } from 'components/filters';
 import { formatDateDots, formatPrice } from 'utils';
 import {TableTransactions} from "components/tableTransactions";
+import {from} from "stylis";
 
 export const JournalPage: FC = () => {
    let [activeFilter, setActiveFilter] = useState(false);
@@ -38,7 +39,6 @@ export const JournalPage: FC = () => {
             }
             const data = await response.json();
             setContracts(data);
-            console.log(data);
          } catch (error) {
             console.error(error);
          }
@@ -49,26 +49,34 @@ export const JournalPage: FC = () => {
    }, []);
 
    const handleFilter = (transactionTypeGet: boolean, transactionTypePost: boolean, dateFrom: string, dateTo: string) => {
-      const filtered = transactions.filter((transaction: any) => {
-         const transactionDate = new Date(transaction.date);
-         const fromDate = dateFrom ? new Date(dateFrom) : null;
-         const toDate = dateTo ? new Date(dateTo) : null;
+      let filtered = transactions;
 
-         if (fromDate) {
-            fromDate.setHours(fromDate.getHours() - 3);
-         }
-         if (toDate) {
-            toDate.setHours(toDate.getHours() - 3);
-         }
+      if(dateFrom && dateTo){
+         filtered = transactions.filter((transaction: any) => {
+            const transactionDate = new Date(transaction.date);
+            const fromDate = dateFrom ? new Date(dateFrom) : null;
+            const toDate = dateTo ? new Date(dateTo) : null;
 
-         const isTypeMatch = (transactionTypeGet && transaction.type === 'get') || (transactionTypePost && transaction.type === 'send');
-         const isDateMatch = (!fromDate || transactionDate >= fromDate) && (!toDate || transactionDate <= toDate);
+            if (fromDate) {
+               fromDate.setHours(fromDate.getHours() - 3);
+            }
+            if (toDate) {
+               toDate.setHours(toDate.getHours() - 3);
+            }
 
-         return isTypeMatch && isDateMatch;
-      });
+            const isTypeMatch = (transactionTypeGet && transaction.type === 'get') || (transactionTypePost && transaction.type === 'send');
+            const isDateMatch = (!fromDate || transactionDate >= fromDate) && (!toDate || transactionDate <= toDate);
+
+            return isTypeMatch && isDateMatch;
+         });
+      }
 
       setTransactionsFiltered(filtered);
    };
+
+   useEffect(() => {
+      handleFilter(activeFilter, activeFilter, '', '');
+   }, [activeFilter, transactions]);
 
    return (
       <JournalPageContainer>
@@ -82,7 +90,7 @@ export const JournalPage: FC = () => {
          <TableTransactions
             contracts={contracts}
             headers={['Наименование', 'Номер договора', 'Тип', 'Описание', 'Поставщик', 'Сумма', 'Дата']}
-            data={activeFilter ? transactionsFiltered : transactions}
+            data={transactionsFiltered}
          />
       </JournalPageContainer>
    );

@@ -16,6 +16,9 @@ export const TableTransactions: FC<ITableTransactionsProps> = (props) => {
 
    const getRowData = (transaction: ITransactionTypes) => {
       const contract = props.contracts?.find(c => c.id === transaction.contractId);
+      if (!transaction || !contract) {
+         return [];
+      }
       return [
          contract.name,
          contract.number,

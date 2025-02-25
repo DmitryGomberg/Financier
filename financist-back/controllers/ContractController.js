@@ -95,7 +95,6 @@ export const addContract = (req, res) => {
 }
 
 export const getContractsByDateRange = (req, res) => {
-    console.log(req)
     const { dateFrom, dateTo } = req.query;
 
     const query = `

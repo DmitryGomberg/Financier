@@ -80,9 +80,7 @@ export const CreateTransactionPage: FC = () => {
    }
 
    const handleClick = () => {
-      console.log('handling before sendind')
       if (validate()) {
-         console.log('sending')
          if (category) {
             const transaction = {
                id: Date.now(),

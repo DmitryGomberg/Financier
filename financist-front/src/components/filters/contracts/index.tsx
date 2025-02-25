@@ -12,11 +12,6 @@ export const FilterContracts: FC<IFilterContractsProps> = (props) => {
    let [isClosed, setIsClosed] = useState(false);
 
    const sendRes = () => {
-      console.log(
-         isDrafted,
-         isSigned,
-         isClosed,
-      );
       props.handleSubmit(isDrafted, isSigned, isClosed);
    };
 

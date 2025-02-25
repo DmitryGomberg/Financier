@@ -54,7 +54,6 @@ export const EditContractPage: FC = () => {
 
             const data = await response.json();
             setContract(data);
-            console.log(data);
             if (data) {
                setName(data.name);
                setNum(data.number);
@@ -147,9 +146,6 @@ export const EditContractPage: FC = () => {
    function validate () {
       if(!name || !num || !customer || !executor || !sum || !date || !timeDelivery  || !validateStages(stages) || !validateNames(stages)){
          alert('Не все обязательные поля заполнены!');
-         console.log(
-            !name, !num, !customer, !executor, !sum, !date, !timeDelivery, !validateStages(stages), !validateNames(stages)
-         );
          return false;
       }
       return true;

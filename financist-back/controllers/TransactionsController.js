@@ -5,7 +5,6 @@ export const allTransactions = (req, res) => {
 
     db.query(query, (err, results)=>{
        if(err){
-           console.log('Ошибка выполнения запроса к бд:', err);
            res.status(500).json({error: 'Ошибка на сервере'})
        } else {
            res.json(results)

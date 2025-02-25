@@ -13,12 +13,6 @@ export const FilterTransactions: FC<IFilterTransactionsProps> = (props) => {
    let [dateTo, setDateTo] = useState('');
 
    const sendRes = () => {
-      console.log(
-         transactionTypeGet,
-         transactionTypePost,
-         dateFrom,
-         dateTo,
-      );
       if(new Date(dateFrom).getTime() - new Date(dateTo).getTime() < 0) {
          props.handleSubmit(transactionTypeGet, transactionTypePost, dateFrom, dateTo);
       } else {

@@ -6,14 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="33ce24f0-ef19-4612-a391-89a83bf36ad0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/components/tableContracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/tableContracts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-back/controllers/ContractController.js" beforeDir="false" afterPath="$PROJECT_DIR$/financist-back/controllers/ContractController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-back/controllers/FilesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/financist-back/controllers/FilesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-back/controllers/TransactionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/financist-back/controllers/TransactionsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/components/filters/contracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/filters/contracts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/components/filters/transactions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/filters/transactions/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/financist-front/src/components/tableTransactions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/tableTransactions/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/analytics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/analytics/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/contractPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/contractPage/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/createContract/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/createContract/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/createTransaction/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/createTransaction/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/editContract/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/editContract/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/financist-front/src/pages/journal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/journal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,21 +38,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tablesRebuild&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Фина-Проминижиниринг\\Financier\\financist-front\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.sync",
+    "ts.external.directory.path": "D:\\Фина-Проминижиниринг\\Financier\\financist-front\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Фина-Проминижиниринг\Financier\financist-front\src\ui" />
@@ -79,11 +82,22 @@
       <workItem from="1740132574275" duration="2796000" />
       <workItem from="1740135685696" duration="1696000" />
       <workItem from="1740375318591" duration="5548000" />
-      <workItem from="1740462578243" duration="300000" />
+      <workItem from="1740462578243" duration="1794000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -11,8 +11,6 @@ const __dirname = path.dirname(__filename);
 export const uploadFile = (req, res) => {
     const contractId = req.body.contractId;
     const files = req.files;
-    console.log('Загружаемые файлы:', files);
-    console.log('ID договора:', contractId);
 
     if (!files || files.length === 0) {
         return res.status(400).json({ error: 'Файлы не загружены' });

@@ -35,9 +35,6 @@ export const CreateContractPage: FC = () => {
    function validate() {
       if (!name || !num || !customer || !executor || !sum || !date || !timeDelivery || !validateStages(stages) || !validateNames(stages)) {
          alert('Исправьте ошибки в форме');
-         console.log(
-            !name, !num, !customer, !executor, !sum, !date, !timeDelivery, !validateStages(stages), !validateNames(stages)
-         );
          return false;
       }
       return true;
