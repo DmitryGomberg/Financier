@@ -62,7 +62,7 @@ export const validateStages = (stages: IStageTypes[]) => {
 };
 
 export const isNumeric = (value: string): boolean => {
-    return !isNaN(parseFloat(value)) && isFinite(Number(value));
+    return /^-?\d+([.,]\d+)?$/.test(value);
 };
 
 export const isDate = (value: string): boolean => {

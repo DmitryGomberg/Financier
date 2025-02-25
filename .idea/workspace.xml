@@ -6,17 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="33ce24f0-ef19-4612-a391-89a83bf36ad0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-back/controllers/ContractController.js" beforeDir="false" afterPath="$PROJECT_DIR$/financist-back/controllers/ContractController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-back/controllers/FilesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/financist-back/controllers/FilesController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-back/controllers/TransactionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/financist-back/controllers/TransactionsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/components/filters/contracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/filters/contracts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/components/filters/transactions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/filters/transactions/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/components/tableTransactions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/components/tableTransactions/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/contracts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/createContract/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/createContract/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/createTransaction/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/createTransaction/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/editContract/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/editContract/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financist-front/src/pages/journal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/pages/journal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/financist-front/src/ui/Table/styled.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +73,7 @@
       <workItem from="1740132574275" duration="2796000" />
       <workItem from="1740135685696" duration="1696000" />
       <workItem from="1740375318591" duration="5548000" />
-      <workItem from="1740462578243" duration="1794000" />
+      <workItem from="1740462578243" duration="2913000" />
     </task>
     <servers />
   </component>

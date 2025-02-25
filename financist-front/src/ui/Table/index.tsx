@@ -24,7 +24,9 @@ export const UiTable: FC<UiTableProps<any>> = ({ headers, data, getRowData, onRo
          const aValue = String(getRowData(a)[headers.indexOf(sortConfig.key)]).replace(/\s+/g, '');
          const bValue = String(getRowData(b)[headers.indexOf(sortConfig.key)]).replace(/\s+/g, '');
 
+         console.log(aValue, bValue);
          if (isNumeric(aValue) && isNumeric(bValue)) {
+            console.log('numeric');
             return sortConfig.direction === 'ascending'
                ? parseFloat(aValue) - parseFloat(bValue)
                : parseFloat(bValue) - parseFloat(aValue);
@@ -74,7 +76,7 @@ export const UiTable: FC<UiTableProps<any>> = ({ headers, data, getRowData, onRo
          <thead>
          <UiTableRow>
             {headers.map((header) => (
-               <UiTableHeader key={header} onClick={() => requestSort(header)} hasIcon={!!getSortIcon(header)}>
+               <UiTableHeader key={header} onClick={() => requestSort(header)}>
                   {header} {getSortIcon(header)}
                </UiTableHeader>
             ))}
