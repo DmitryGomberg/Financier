@@ -42,11 +42,11 @@ export const Aside: FC = () => {
             <AsideLink active={locate.pathname === '/journal'} openedSidebar={active}>
                <Link to="/journal"><AccessTimeFilled />Журнал</Link>
             </AsideLink>
-            <AsideLink active={locate.pathname === '/notifications'} openedSidebar={active}>
-               <Link to="/notifications"><Notifications />{active ? 'Уведомления' : 'Уведомл.'}
-                  <span>2</span>
-               </Link>
-            </AsideLink>
+            {/*<AsideLink active={locate.pathname === '/notifications'} openedSidebar={active}>*/}
+            {/*   <Link to="/notifications"><Notifications />{active ? 'Уведомления' : 'Уведомл.'}*/}
+            {/*      <span>2</span>*/}
+            {/*   </Link>*/}
+            {/*</AsideLink>*/}
          </AsideLinks>
          <AsideButtons openedSidebar={active}>
             <UiButton label={'Добавить договор'} contentLeft={<Add />}

@@ -27,9 +27,10 @@ export const UiTableHeader = styled.th`
 export const UiTableRow = styled.tr<{clickable?: boolean}>`
 	position: relative;
 	cursor: ${({clickable}) => clickable ? 'pointer' : 'default'};
+	background-color: ${colors.light};
 
 	&:nth-child(even) {
-		background-color: #f9f9f9;
+		background-color: #f4f4f4;
 	}
 `;
 

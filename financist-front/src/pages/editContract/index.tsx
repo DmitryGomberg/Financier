@@ -272,9 +272,11 @@ export const EditContractPage: FC = () => {
          <ContractPageFiles>
             {files.map((file, index) => (
                <ContractPageFile key={index}>
-                  <span>{getFileType(file)}</span>
-                  {file.substring(37)}
-                  <button onClick={() => handleDelete(file)}>Удалить</button>
+                  <div>
+                     <span>{getFileType(file)}</span>
+                     {file.substring(37)}
+                     <button onClick={() => handleDelete(file)}>Удалить</button>
+                  </div>
                </ContractPageFile>
             ))}
          </ContractPageFiles>

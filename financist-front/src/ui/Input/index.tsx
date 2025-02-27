@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, forwardRef } from 'react';
 import { UiInputContainer, UiInputLabel, UiInputMain } from './styled';
 
 type IUiInputProps = {
@@ -10,7 +10,7 @@ type IUiInputProps = {
    validated?: boolean;
 };
 
-export const UiInput: FC<IUiInputProps> = (props) => {
+export const UiInput = forwardRef<HTMLInputElement, IUiInputProps>((props, ref) => {
 
    const handleClick = (value: string) => {
       props.onChange(value);
@@ -19,8 +19,13 @@ export const UiInput: FC<IUiInputProps> = (props) => {
    return (
       <UiInputContainer>
          {props.label && <UiInputLabel error={!!(props.validated && !props.value)}>{props.label}</UiInputLabel>}
-         <UiInputMain placeholder={props.placeholder} onChange={(e) => handleClick(e.target.value)}
-                      value={props.value} type={props.type} />
+         <UiInputMain
+            ref={ref}
+            placeholder={props.placeholder}
+            onChange={(e) => handleClick(e.target.value)}
+            value={props.value}
+            type={props.type}
+         />
       </UiInputContainer>
    );
-};
+});

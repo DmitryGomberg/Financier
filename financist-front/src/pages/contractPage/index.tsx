@@ -143,9 +143,11 @@ export const ContractPage: FC = () => {
          <ContractPageFiles>
             {files.map((file, index) => (
                <ContractPageFile key={index}>
-                  <span>{getFileType(file)}</span>
-                  {file.substring(37)}
-                  <a href={`http://localhost:4565/uploads/${file}`} download target={'_blank'}>Просмотр</a>
+                  <a href={`http://localhost:4565/uploads/${file}`} download target={'_blank'}>
+                     <span>{getFileType(file)}</span>
+                     {file.substring(37)}
+                     <button>Просмотреть</button>
+                  </a>
                </ContractPageFile>
             ))}
          </ContractPageFiles>

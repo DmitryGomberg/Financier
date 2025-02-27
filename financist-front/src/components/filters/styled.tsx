@@ -10,6 +10,10 @@ export const FilterContainer = styled.div`
 	gap: 10px;
 	position: relative;
 	width: 100%;
+
+	background: rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(9.1px);
+	-webkit-backdrop-filter: blur(9.1px);
 `;
 export const FilterLine = styled.div`
 	display: flex;

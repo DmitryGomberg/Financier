@@ -7,6 +7,10 @@ export const NavContainer = styled(Container)`
        display: flex;
        align-items: center;
        border-bottom: 1px solid ${colors.gray};
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        background-color: ${colors.light};
     }
 `;
 export const NavLogo = styled.div`

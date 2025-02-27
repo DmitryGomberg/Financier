@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from 'styles/vars';
+import decor from './assets/decor.png';
 
 export const Container = styled.div`
 	max-width: 1440px;
@@ -17,7 +18,12 @@ export const AppContainer = styled.div`
 export const AppMain = styled(Container)`
 	display: flex;
 	flex: 1 1 auto;
-
+    background-image: url(${decor});
+    background-position: right bottom;
+	background-size: 500px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    
 	& > div:last-child {
 		padding: 30px;
 	}
@@ -50,6 +56,11 @@ export const Subtitle = styled.h2`
 `;
 export const BorderContainer = styled.div`
 	border: 1px solid ${colors.gray};
+
+	background: rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(9.1px);
+	-webkit-backdrop-filter: blur(9.1px);
+    
 	border-radius: 10px;
 	padding: 10px 15px;
 	display: flex;

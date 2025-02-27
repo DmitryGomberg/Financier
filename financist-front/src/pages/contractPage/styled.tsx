@@ -14,26 +14,35 @@ export const ContractPageHeader = styled.div`display: flex;
 export const ContractPageFiles = styled.ul`
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     width: 100%;
 `
 export const ContractPageFile = styled.li`
     border: 1px solid ${colors.gray};
-    padding: 5px 10px;
+    border-bottom-color: ${colors.accentOrange};
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+	background: rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(9.1px);
+	-webkit-backdrop-filter: blur(9.1px);
+    
     & span{
-        color: ${colors.accentOrange}
+        color: ${colors.light};
+        background-color: ${colors.accentOrange};
+        border-radius: 8px;
+        padding: 2px 8px;
     }
-    & a {
-        margin-left: auto;
+    &>div, &>a{
+        padding: 10px 10px;
+        display: flex;
+	    align-items: center;
+	    gap: 10px;
     }
-    & button{
-        color: red;
-        margin-left: auto;
-    }
+	& button {
+	   margin-left: auto;
+       color: ${colors.accentOrange};
+       text-decoration: underline;
+   }
 `;
 export const ContractPageRes = styled.div`
     display: flex;

@@ -43,6 +43,10 @@ export const EditContractPageDateBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(9.1px);
+    -webkit-backdrop-filter: blur(9.1px);
 `;
 export const EditContractPageAddFiles = styled.div`
     display: flex;
